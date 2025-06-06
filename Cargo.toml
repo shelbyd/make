@@ -3,6 +3,7 @@ name = "make"
 description = "A utility for just making files and directories."
 version = "0.1.0"
 edition = "2024"
+license = "MIT"
 
 [dependencies]
 anyhow = "1.0.98"
