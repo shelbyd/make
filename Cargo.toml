@@ -6,6 +6,7 @@ edition = "2024"
 
 [dependencies]
 anyhow = "1.0.98"
+atty = "0.2.14"
 clap = { version = "4.5.39", features = ["derive"] }
 
 [dev-dependencies]

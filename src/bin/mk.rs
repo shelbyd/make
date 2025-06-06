@@ -33,11 +33,14 @@ const EXECUTABLE_EXTENSIONS: &[&str] = &[
 ];
 
 fn main() -> anyhow::Result<()> {
-    run(
-        std::env::current_dir()?,
-        Options::parse(),
-        std::io::stdin().lock(),
-    )
+    let dir = std::env::current_dir()?;
+    let options = Options::parse();
+
+    if atty::is(atty::Stream::Stdin) {
+        run(dir, options, &[][..])
+    } else {
+        run(dir, options, std::io::stdin().lock())
+    }
 }
 
 fn run<R: std::io::Read>(
